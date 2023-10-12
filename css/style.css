@@ -38,7 +38,7 @@ html{
 
 /* Haut de page */
 .presentation {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(https://images.pexels.com/photos/16128264/pexels-photo-16128264/free-photo-of-rhume-neige-nuages-building.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) center/cover no-repeat fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(https://cdn.pixabay.com/photo/2017/12/28/22/03/lens-3046269_1280.jpg) center/cover no-repeat fixed;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -90,14 +90,16 @@ html{
 
 /* Mise en forme des différentes catégories */
 .galerie,
-.about .stats {
+.about .stats,
+.about .contacts {
     background-color: #262626;
     padding: 30px 0; }
-.about .stats,
+.about .stats, .about .contacts,
 .automobile, .nature, .paysage, .portrait {
     padding: 30px 0 50px; }
     .galerie .galerieTitle,
-    .about .stats .container .statistiques {        
+    .about .stats .container .statistiques,
+    .about .contacts .container .disct {        
         font-size: clamp(2rem, 10vw, 3.5rem);
         text-transform: uppercase;
         font-family: 'Montserrat';
@@ -113,7 +115,8 @@ html{
     .automobile .galerieTitle,
     .nature .galerieTitle,
     .paysage .galerieTitle,
-    .portrait .galerieTitle {
+    .portrait .galerieTitle,
+    .maps .mapsTitle {
         font-size: clamp(2rem, 10vw, 4rem);
         text-transform: uppercase;
         font-family: 'Montserrat';
@@ -125,7 +128,8 @@ html{
         color: #262626;
         z-index: 1; }
         .galerie .galerieTitle::before,
-        .about .stats .container .statistiques::before {
+        .about .stats .container .statistiques::before,
+        .about .contacts .container .disct::before {
             content: attr(data-outline);
             position: absolute;
             left: 0%;
@@ -141,7 +145,8 @@ html{
         .automobile .galerieTitle::before,
         .nature .galerieTitle::before,
         .paysage .galerieTitle::before,
-        .portrait .galerieTitle::before {
+        .portrait .galerieTitle::before,
+        .maps .mapsTitle::before {
             content: attr(data-outline);
             position: absolute;
             left: 0%;
@@ -222,10 +227,11 @@ html{
 
 /* Présentation de moi */
 .aboutHome,
-.about .moi {
+.about .moi,
+.about .maps {
     background-color: #f7f7f7;
     color: #000;
-    padding: 50px 0 70px; }       
+    padding: 50px 0 70px; }   
     .aboutHome .container,
     .about .moi .container {
         display: grid;
@@ -329,11 +335,14 @@ html{
         height: 330px; }
 }
                 
-                
-
-
-
-/* Responsive : Format Téléphone */
+/* Google Maps */
+.maps #ggmaps {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    clear: both;
+    max-height: 400px;
+    text-align: center; }
 
 
 
@@ -375,92 +384,67 @@ html{
                 margin-top: 0;
                 color: #8c8c8c; }
 
-
-
-                .about .container .quote {
+/* Citation */
+.about .container .citation {
     text-align: center;
     padding: 5px;
     margin: 15px 0 60px;
     max-width: 100%;
     border-radius: 15px;
-    background-color: #262626;
-}
-.about .container .quote .fa-quote-right {
-    font-size: 70%;
-    vertical-align: bottom;
-    content: "+";
-    padding-left: 10px;
-}
-.about .container .quote .fa-quote-left {
-    font-size: 70%;
-    vertical-align: top;
-    content: "+";
-    padding-right: 10px;
-}
-
-.about .container .quote p:first-of-type {
-    font-size: 30px;
-    margin: 20px 0 10px;
-    position: relative;
-    color: var(--light-color);
-    font-weight: normal
-}
-
-@media(max-width: 700px) {
-    .about .container .quote p:first-of-type {
-        font-size:20px
-    }
-}
-
-@media(max-width: 480px) {
-    .about .container .quote p:first-of-type {
-        font-size:15px
-    }
-}
-
-.about .container .quote p:first-of-type::before,.about .container .quote p:first-of-type::after {
-    position: absolute;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 15px;
-    color: #fff
-}
-
-@media(max-width: 480px) {
-    .about .container .quote p:first-of-type::before,.about .container .quote p:first-of-type::after {
-        font-size:12px
-    }
-}
-
-.about .container .quote p:last-of-type {
-    font-size: 20px;
-    color: #8c8c8c
-}
+    background-color: #262626; }
+    .about .container .citation .fa-quote-right {
+        font-size: 70%;
+        vertical-align: bottom;
+        content: "+";
+        padding-left: 10px; }
+    .about .container .citation .fa-quote-left {
+        font-size: 70%;
+        vertical-align: top;
+        content: "+";
+        padding-right: 10px; }
+    .about .container .citation p:first-of-type {
+        font-size: 30px;
+        margin: 20px 0 10px;
+        position: relative;
+        color: var(--light-color);
+        font-weight: normal; }
+        .about .container .citation p:first-of-type::before,
+        .about .container .citation p:first-of-type::after {
+            position: absolute;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 15px;
+            color: #fff; }
+    .about .container .citation p:last-of-type {
+        font-size: 20px;
+        color: #8c8c8c; }        
 
 @media(max-width: 700px) {
-    .about .container .quote p:last-of-type {
-        font-size:15px
-    }
+    .about .container .citation p:first-of-type {
+        font-size: 20px; }
+    .about .container .citation p:last-of-type {
+        font-size: 15px; }
 }
 
 @media(max-width: 480px) {
-    .about .container .quote p:last-of-type {
-        font-size:12px
-    }
+    .about .container .citation p:first-of-type {
+        font-size: 15px; }
+    .about .container .citation p:first-of-type::before,
+    .about .container .citation p:first-of-type::after {
+        font-size: 12px; }
+    .about .container .citation p:last-of-type {
+        font-size: 12px; }
 }
 
-
-
-
-
-
-.about .stats .container .container {
+/* Petites statistiques et différents contacts */
+.about .stats .container .container,
+.about .contacts .container .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 80px;
+    gap: 40px;
     padding: 5px; }
-
-    .about .stats .container .container .box {
+    .about .stats .container .container .box,
+    .about .contacts .container .container .box {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -474,31 +458,40 @@ html{
         border: 2px solid #eee;
         transition: .3s;
         box-shadow: 4px 4px 10px rgba(0,0,0,.1490196078); }    
-        .about .stats .container .box:hover {
+        .about .stats .container .box:hover,
+        .about .contacts .container .box:hover {
             border: 2px solid #eee; }
-            .about .stats .container .container .box p {
+            .about .stats .container .container .box p,
+            .about .contacts .container .container .box p {
                 font-size: 13px;
                 margin-bottom: 0px;  }
-            .about .stats .container .container .box  h1 {
+            .about .stats .container .container .box  h1,
+            .about .contacts .container .container .box h1 {
                 text-align: center;
                 font-size: 35px;
                 margin: 5px 0;
                 font-weight: normal; }
+            .about .contacts .container .container .box h1 {
+                font-size: 20px; }
+                .about .contacts .container .container .box h1 a {
+                    text-decoration: none;
+                    color: #262626;
+                    padding: 0 5px; }
+                    .about .contacts .container .container .box h1 a:hover {
+                        color: deepskyblue; }
 
 @media(max-width: 700px) {
-    .about .stats .container .container {
+    .about .stats .container .container,
+    .about .contacts .container .container {
         gap: 20px; }
 }
 
 @media(max-width: 630px) {
-    .about .stats .container .box {
+    .about .stats .container .box,
+    .about .contacts .container .box {
         width: 300px;
         margin: 0 auto; }
 }
-
-
-
-
 
 /* Pied de page */
 footer {
@@ -575,7 +568,7 @@ nav {
                     position: relative;
                     text-decoration: none;
                     font-size: 15px;
-                    color: #8c8c8c; }
+                    color: #fff; }
                     nav .container ul.menu li a::before {
                         content: "";
                         height: 2px;
@@ -616,15 +609,21 @@ nav .container .tel {
                 position: fixed;
                 top: 40px;
                 right: 40px;
-                font-size: 25px;
+                font-size: 30px;
+                color: #fff;
                 cursor: pointer; }
     nav .container .tel ul.phone {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        list-style: none;
+        font-size: 20px;
         width: 100%;
         height: 100%; }
+        nav .container .tel ul.phone a img {
+            width: 150px;
+            opacity: 0.15; }
         nav .container .tel ul.phone li {
             margin: 50px 0;
             transition: .3s; }
@@ -722,32 +721,4 @@ nav .container .tel {
 
 
 
-
-#lightgallery .item {
-    margin-bottom: 30px; }
-    #lightgallery .item img {
-      /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
-      filter: gray;
-      /* IE5+ */
-      /* -webkit-filter: grayscale(1); */
-      /* Webkit Nightlies & Chrome Canary */
-      transition: all .1s ease-in-out;
-      -webkit-transition: all .1s ease-in-out; }
-    /* #lightgallery .item:hover img {
-      filter: none;
-      -webkit-filter: grayscale(0);
-      -webkit-transform: scale(1.01); } */
-  
-  img {
-    /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
-    filter: gray;
-    /* IE5+ */
-    /* -webkit-filter: grayscale(1); */
-    /* Webkit Nightlies & Chrome Canary */
-    transition: all .1s ease-in-out;
-    -webkit-transition: all .1s ease-in-out; }
-    /* img:hover {
-      filter: none;
-      -webkit-filter: grayscale(0);
-      -webkit-transform: scale(1.01); } */
   
