@@ -32,3 +32,6 @@ window.addEventListener("scroll", () => {
 
 
 
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
