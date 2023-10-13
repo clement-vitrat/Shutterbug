@@ -1,37 +1,38 @@
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
+/* Menu */
+const coco = (selector) => document.querySelector(selector);
+const toto = (selector) => document.querySelectorAll(selector);
 
-const menu = $(".menu");
-const fermeture = $(".fermeture");
-const menuTel = $(".tel");
+const menu = coco(".menu");
+const fermeture = coco(".fermeture");
+const menuTel = coco(".tel");
 
 menu.addEventListener("click", () => {
-  menuTel.classList.toggle("show");
-  document.body.style.overflow = menuTel.classList.contains("show") ? "hidden" : "auto";
+  menuTel.classList.toggle("app");
+  document.body.style.overflow = menuTel.classList.contains("app") ? "hidden" : "auto";
 });
 
 fermeture.addEventListener("click", () => {
-  menuTel.classList.remove("show");
+  menuTel.classList.remove("app");
   document.body.style.overflow = "auto";
 });
 
 const activePage = window.location.pathname;
-const links = $$(".link");
+const links = toto(".link");
 
 links.forEach((link) => {
   link.classList.toggle("active", (activePage === "/" && link.href.includes("index")) || link.href.includes(activePage));
 });
 
-const nav = $("nav");
+const nav = coco("nav");
 
 window.addEventListener("scroll", () => {
-  nav.classList.toggle("sticky", window.scrollY > 0);
+  nav.classList.toggle("block", window.scrollY > 0);
 });
 
 
 
 
-
+/* Enlever la possibilité de faire un clic droit */
 document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
 });
